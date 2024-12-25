@@ -17,16 +17,12 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '16' # Or specify the version your project uses
-
     - name: Create a file in job1 
       run: |
         cd /home/runner/work
         ls -al 
         touch newfile.txt
+        ls -al
 
 
   # Job 2: Build Docker Image
@@ -40,8 +36,6 @@ jobs:
 
     - name: Build Docker image
       run: |
-        docker build -t my-app:${{ github.sha }} .
-        docker tag my-app:${{ github.sha }} my-app:latest
         docker image ls 
         ls -al /home/runner/work
 
