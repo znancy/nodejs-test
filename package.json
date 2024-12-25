@@ -1,13 +1,13 @@
 {
-    "name": "node-project",  // 项目名称，通常是当前目录名
-    "version": "1.0.0",  // 默认的版本号
-    "description": "",  // 项目描述，默认是空
-    "main": "index.js",  // 默认的入口文件，通常是 index.js
-    "scripts": {  // 用于定义可执行命令的对象
+    "name": "node-project",  
+    "version": "1.0.0", 
+    "description": "",  
+    "main": "index.js",  
+    "scripts": {  
       "test": "echo \"Error: no test specified\" && exit 1"
     },
-    "keywords": [],  // 项目关键字，默认是空数组
-    "author": "",  // 项目作者，默认是空
-    "license": "ISC"  // 默认的许可证，通常是 ISC
+    "keywords": [],  
+    "author": "",  
+    "license": "ISC" 
   }
   
