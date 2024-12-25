@@ -22,6 +22,13 @@ jobs:
       with:
         node-version: '16' # Or specify the version your project uses
 
+    - name: Create a file in job1 
+      run: |
+        cd /home/runner/work
+        ls -al 
+        touch newfile.txt
+
+
   # Job 2: Build Docker Image
   docker_build:
     runs-on: ubuntu-latest
@@ -35,5 +42,7 @@ jobs:
       run: |
         docker build -t my-app:${{ github.sha }} .
         docker tag my-app:${{ github.sha }} my-app:latest
+        docker image ls 
+        ls -al /home/runner/work
 
 
