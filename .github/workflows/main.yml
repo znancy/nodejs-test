@@ -40,7 +40,6 @@ jobs:
 
     - name: Verify Docker in Service
       run: |
-          export DOCKER_HOST=tcp://localhost:2375
           docker version
           docker info
 
