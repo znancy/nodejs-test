@@ -22,6 +22,7 @@ jobs:
      
       - name: Test Docker
         run: |
-          export 
+          echo "DOCKER_HOST=tcp://localhost:2375" >> $GITHUB_ENV
+          export
           docker version
           docker info          
