@@ -9,6 +9,14 @@ on:
       - main
 
 jobs:
+  default_docker:
+    runs-on: ubuntu-latest
+    steps:
+    - name: verify default docker version
+      run: |
+        docker version
+        docker info
+      
   # Job 1: Build and Test NPM Package
   npm_build_and_test:
     runs-on: ubuntu-latest
@@ -30,17 +38,16 @@ jobs:
       with:
         node-version: '16' # Or specify the version your project uses
 
-    - name: Create a file in job1 
+    - name: Verify Docker in Service
       run: |
-        cd /home/runner/work
-        ls -al 
-        touch newfile.txt
-        ls -al
+          export DOCKER_HOST=tcp://localhost:2375
+          docker version
+          docker info
 
     - name: Build Docker image
       run: |
-        docker image ls 
-        ls -al /home/runner/work
+        docker info
+        docker build -t myapp:latest .
 
 
 
