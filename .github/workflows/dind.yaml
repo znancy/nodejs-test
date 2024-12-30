@@ -10,10 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     services:
       docker:
-        image: docker:27.5.0-rc.1-dind-alpine3.21
-        options: --privileged --shm-size=2g
-        volumes:
-          - /var/run/docker.sock:/var/run/docker.sock:ro
+        image: docker:dind
+        options: --privileged
+        ports:
+          - 2375:2375
     container:
       image: docker:latest
     steps:
@@ -22,5 +22,6 @@ jobs:
      
       - name: Test Docker
         run: |
+          export 
           docker version
           docker info          
