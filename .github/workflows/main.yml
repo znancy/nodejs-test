@@ -33,24 +33,23 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: Set up Docker CLI
-      uses: docker/setup-buildx-action@v2
-
     - name: Set DOCKER_HOST environment variable
-      run: echo "DOCKER_HOST=tcp://docker:2375" >> $GITHUB_ENV
-
-    - name: Verify Docker in Service
       run: |
-          echo $DOCKER_HOST
-          docker version
-          docker info
-          echo $GITHUB_ENV
+        ls -al /etc
+        ls -al /etc | grep runner
 
-    - name: Build Docker image
-      run: |
-        echo $DOCKER_HOST
-        docker info
-        docker build -t myapp:latest .
+    # - name: Verify Docker in Service
+    #   run: |
+    #       echo $DOCKER_HOST
+    #       docker version
+    #       docker info
+    #       echo $GITHUB_ENV
+
+    # - name: Build Docker image
+    #   run: |
+    #     echo $DOCKER_HOST
+    #     docker info
+    #     docker build -t myapp:latest .
 
 
 
