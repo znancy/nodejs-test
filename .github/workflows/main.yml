@@ -35,8 +35,8 @@ jobs:
 
     - name: Set DOCKER_HOST environment variable
       run: |
-        ls -al /etc
-        ls -al /etc | grep runner
+        cat /etc/hosts
+        cat ~/.docker/config.json
 
     # - name: Verify Docker in Service
     #   run: |
