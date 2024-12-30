@@ -16,6 +16,8 @@ jobs:
      
       - name: Test Docker
         run: |
+          echo $DOCKER_HOST
+          export DOCKER_HOST=http://localhost:2375
           docker version
           docker info          
           docker build -t myapp:latest .
