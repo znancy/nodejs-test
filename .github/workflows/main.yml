@@ -12,6 +12,14 @@ jobs:
   # Job 1: Build and Test NPM Package
   npm_build_and_test:
     runs-on: ubuntu-latest
+    services:
+        docker:
+          image: docker:24-dind
+          options: --privileged # Required for DinD to work
+          ports:
+            - 2375:2375 # Expose Docker API port
+          env:
+            DOCKER_TLS_CERTDIR: "" # Disable TLS for Docker service
 
     steps:
     - name: Checkout code
