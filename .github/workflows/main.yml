@@ -40,13 +40,15 @@ jobs:
 
     - name: Verify Docker in Service
       run: |
+          echo $DOCKER_HOST
           docker version
           docker info
 
     - name: Build Docker image
       run: |
+        echo $DOCKER_HOST
         docker info
-        docker build -t myapp:latest .
+        # docker build -t myapp:latest .
 
 
 
