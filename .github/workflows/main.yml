@@ -25,7 +25,7 @@ jobs:
           image: docker:24-dind
           options: |
             --privileged 
-            --dns 8.8.8.8
+            --dns '8.8.8.8'
           ports:
             - 2375:2375 # Expose Docker API port
           env:
