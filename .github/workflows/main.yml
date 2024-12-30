@@ -23,7 +23,9 @@ jobs:
     services:
         docker:
           image: docker:24-dind
-          options: --privileged # Required for DinD to work
+          options: |
+            --privileged 
+            --dns 8.8.8.8
           ports:
             - 2375:2375 # Expose Docker API port
           env:
