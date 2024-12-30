@@ -25,7 +25,6 @@ jobs:
           image: docker:24-dind
           options: |
             --privileged 
-            --dns '8.8.8.8'
           ports:
             - 2375:2375 # Expose Docker API port
           env:
@@ -42,7 +41,7 @@ jobs:
 
     - name: Verify Docker in Service
       run: |
-          export DOCKER_HOST=tcp://localhost:2375
+          export DOCKER_HOST=http://localhost:2375
           docker version
           docker info
 
